@@ -1,0 +1,55 @@
+
+
+<div class="cbQuickGoogleMap">
+	<div class="inner_cbQuickGoogleMap" id="cbsgm_{contentId}" style="width:{width}px; height:{height}px;"></div>
+</div>
+
+
+<script type="text/javascript" charset=utf-8>
+	var infoText_{contentId} = "{infoText}";
+	    infoText_{contentId} = decodeURIComponent(infoText_{contentId});
+	    infoText_{contentId} = infoText_{contentId}.replace(/\+/g, ' ');
+	
+	// split infoText into rows
+	var rowsInfoText_{contentId} = infoText_{contentId}.split("<br>");
+
+    var latlng_{contentId} = new google.maps.LatLng(
+    		<f:format.number decimals="10" decimalSeparator=".">{latitude}</f:format.number>,
+    		<f:format.number decimals="10" decimalSeparator=".">{longitude}</f:format.number>);
+    
+    var mapOptions_{contentId} = new Object();
+        mapOptions_{contentId}.center = latlng_{contentId};
+	    mapOptions_{contentId}.zoom = {mapZoom};
+        mapOptions_{contentId}.mapTypeId = google.maps.MapTypeId.{mapType};
+        mapOptions_{contentId}.navigationControlOptions = new Object();
+        mapOptions_{contentId}.navigationControlOptions.style = google.maps.NavigationControlStyle.{mapControl};
+	   
+        //myOptions.navigationControlOptions = {style: google.maps.NavigationControlStyle.SMALL};
+        
+	var mapCenter_{contentId} = new Object();
+	    mapCenter_{contentId}.position = latlng_{contentId};
+	    mapCenter_{contentId}.title = rowsInfoText_{contentId}[0];
+    
+    var map_{contentId} = new google.maps.Map(document.getElementById("cbsgm_{contentId}"), mapOptions_{contentId});
+    var marker_{contentId} = new google.maps.Marker(mapCenter_{contentId});
+    
+ 	// set info window
+    if ('' != infoText_{contentId}){braceStart}
+    	infoText_{contentId} = infoText_{contentId}.replace(/\n/g, "<br>");
+    	var infoBox_{contentId} = new Object();
+    	    infoBox_{contentId}.content = infoText_{contentId};
+    	
+    	var infowindow_{contentId} = new google.maps.InfoWindow(infoBox_{contentId});
+    	// add listener
+    	google.maps.event.addListener(marker_{contentId}, 'click', function(){openInfoWindow_{contentId}();});
+    {braceEnd}	
+
+    if (true == '{openInfoBox}') openInfoWindow_{contentId}();
+    
+    marker_{contentId}.setMap(map_{contentId}); 
+ 	    
+ 	function openInfoWindow_{contentId}(){braceStart}
+ 		infowindow_{contentId}.open(map_{contentId},marker_{contentId});
+ 	{braceEnd}
+        
+</script>

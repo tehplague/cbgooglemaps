@@ -1,0 +1,18 @@
+plugin.tx_cbgooglemaps {
+	settings{
+		googleapi {
+			uri = {$plugin.tx_cbgooglemaps.googleapi.uri}
+		}
+		display{
+			width = {$plugin.tx_cbgooglemaps.display.width}
+			height = {$plugin.tx_cbgooglemaps.display.height}
+			mapType = {$plugin.tx_cbgooglemaps.display.mapType}
+			zoom = {$plugin.tx_cbgooglemaps.display.zoom}
+			navigationControl = {$plugin.tx_cbgooglemaps.display.mapControl}
+		}
+		valid{
+			mapTypes = HYBRID,ROADMAP,SATELLITE,TERRAIN 
+			navigationControl = SMALL,DEFAULT,ANDROID,ZOOM_PAN
+		}
+	}
+}

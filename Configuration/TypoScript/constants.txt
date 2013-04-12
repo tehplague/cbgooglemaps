@@ -1,0 +1,19 @@
+plugin.tx_cbgooglemaps {
+	googleapi {
+		# cat=plugin.tx_cbgooglemaps//a; type=string; label=uri to google javascript api
+		uri = https://maps.google.com/maps/api/js?sensor=false
+	}
+	display {
+		# cat=plugin.tx_cbgooglemaps//b; type=int+; label=default width of map (in pixel)
+		width = 460
+		# cat=plugin.tx_cbgooglemaps//c; type=int+; label=default height of map (in pixel)
+		height = 250
+		# cat=plugin.tx_cbgooglemaps//d; type=options[HYBRID,ROADMAP,SATELLITE,TERRAIN]; label=default map type
+		mapType = HYBRID
+		# cat=plugin.tx_cbgooglemaps//e; type=int+; label=default map zoom level (default = 15)
+		zoom = 15
+		# cat=plugin.tx_cbgooglemaps//f; type=options[DEFAULT,SMALL,ZOOM_PAN,ANDROID]; label=default map controls 
+		mapControl = DEFAULT		
+	}
+}
+  

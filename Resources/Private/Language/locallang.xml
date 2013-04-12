@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Strings and labels for the cbgooglemaps extensions</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="label.street">street</label>
+			<label index="label.zip">zip</label>
+			<label index="label.city">city</label>
+			<label index="label.latitude">latitude</label>
+			<label index="label.longitude">longitude</label>
+			<label index="label.country">country</label>
+			<label index="label.map">map</label>
+			<label index="label.buttonGeocoding">fetch coordinates from address</label>
+			<label index="label.description">description of map and position</label>
+			<label index="label.autoOpen">open description on startup</label>
+			<label index="label.sheetLocation">location</label>
+			<label index="label.sheetDisplay">display properties</label>
+			<label index="label.mapWidth">map width, in pixel (only visible to the frontend view!)</label>
+			<label index="label.mapHeight">map height, in pixel (only visible to the frontend view!)</label>
+			<label index="label.mapType">map type</label>
+			<label index="label.mapTypeRoadmap">roadmap</label>
+			<label index="label.mapTypeTerrain">terrain</label>
+			<label index="label.mapTypeHybrid">hybrid</label>
+			<label index="label.mapTypeSatellite">satellite</label>
+			<label index="label.scaleLevel">zoom level</label>
+			<label index="label.navigationControl">navigation controls</label>
+			<label index="label.navigationControlDefault">default</label>
+			<label index="label.navigationControlSmall">small controls</label>
+			<label index="label.navigationControlZoomPan">bigger controls</label>
+			<label index="label.navigationControlAndroid">small controls (used in Android)</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="label.street">Straße</label>
+			<label index="label.zip">Postleitzahl</label>
+			<label index="label.city">Stadt</label>
+			<label index="label.latitude">Breitengrad</label>
+			<label index="label.longitude">Längengrad</label>
+			<label index="label.country">Land</label>
+			<label index="label.map">Karte</label>
+			<label index="label.buttonGeocoding">Ermittle Koordinaten aus obiger Adresse</label>
+			<label index="label.description">Karten- und Ortsbeschreibung</label>
+			<label index="label.autoOpen">Öffne Informationsblase automatisch</label>
+			<label index="label.sheetLocation">Ortsangabe /-definition</label>
+			<label index="label.sheetDisplay">Kartendarstellung</label>
+			<label index="label.mapWidth">Breite der Karte, in Pixel (nur im Frontend wirksam!)</label>
+			<label index="label.mapHeight">Höhe der Karte, in Pixel (nur im Frontend wirksam!)</label>
+			<label index="label.mapType">Art der Kartendarstellung</label>
+			<label index="label.mapTypeRoadmap">Straßenkarte</label>
+			<label index="label.mapTypeTerrain">Geländeansicht</label>
+			<label index="label.mapTypeHybrid">Gemischte Darstellung (Straßenansicht und Satellitenansicht</label>
+			<label index="label.mapTypeSatellite">Satellitenansicht</label>
+			<label index="label.scaleLevel">Zoom-Stufe</label>
+			<label index="label.navigationControl">Steuerelemete zur Navigation</label>
+			<label index="label.navigationControlDefault">Standard</label>
+			<label index="label.navigationControlSmall">kleine Steuerelemente</label>
+			<label index="label.navigationControlZoomPan">größere Steuerlemente</label>
+			<label index="label.navigationControlAndroid">Minimale Steuerelemente (ähnlich zur Android-Darstellung)</label>
+		</languageKey>
+	</data>
+</T3locallang>

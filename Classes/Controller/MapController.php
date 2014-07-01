@@ -2,19 +2,20 @@
 
 /**
  * Class to extend the backend with a tca user field 
- * @package				Tx_Cbgooglemaps
- * @path 				Tx_Cbgooglemaps_Controller_MapController.php
+ * @package				Cbgooglemaps
+ * @path 				Cbgooglemaps\Controller\MapController.php
  * @version				1.0: MapController.php,  03.07.2011
- * @copyright 			(c)2011 Christian Brinert
+ * @copyright 			(c)2011-2014 Christian Brinert
  * @author 				Christian Brinkert <christian.brinkert@googlemail.com>
  */
-class Tx_Cbgooglemaps_Controller_MapController extends Tx_Extbase_MVC_Controller_ActionController {
+
+class Tx_Cbgooglemaps_Controller_MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	protected $configurationManager;
 	protected $ceData;
 	protected $settings;
 	
-	public function injectConfigurationManager(Tx_Extbase_Configuration_ConfigurationManagerInterface $configurationManager) {
+	public function injectConfigurationManager(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager) {
 		$this->configurationManager = $configurationManager;
 	}
 	
@@ -23,14 +24,10 @@ class Tx_Cbgooglemaps_Controller_MapController extends Tx_Extbase_MVC_Controller
 		$this->ceData = $this->configurationManager->getContentObject()->data;	
 		
 		$this->settings = $this->configurationManager->getConfiguration(
-							Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
+							\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
 							'Cbgooglemaps',
 							'Quickgooglemap');
 		
-        // add javascript file  
-        #$this->response->addAdditionalHeaderData( 
-        #	'<script src="'.$this->settings['googleapi']['uri'].'" type="text/javascript"></script>');
-
 		// fix to the previous rows which includes the js file multiple times
         $GLOBALS['TSFE']->additionalHeaderData['cbgooglemaps'] = 
         	  '<script src="'. $this->settings['googleapi']['uri'] .'" type="text/javascript"></script>';  
@@ -38,7 +35,7 @@ class Tx_Cbgooglemaps_Controller_MapController extends Tx_Extbase_MVC_Controller
 	
 	
 	public function indexAction()
-	{				
+	{					
 		// assign contents to the view
 		$this->view->assign('contentId', $this->ceData['uid']);
 		

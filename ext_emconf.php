@@ -3,7 +3,7 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "cbgooglemaps".
  *
- * Auto generated 28-11-2013 06:27
+ * Auto generated 01-07-2014 13:40
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'description' => 'Include google maps to the frontend, in a quick and easy way (based on google maps api 3)',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '2.1.15',
+	'version' => '3.0.2',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
@@ -36,9 +36,7 @@ $EM_CONF[$_EXTKEY] = array (
 	array (
 		'depends' => 
 		array (
-			'typo3' => '4.3.0-6.1.99',
-			'extbase' => '1.0.0-6.1.99',
-			'fluid' => '1.0.0-6.1.99',
+			'typo3' => '6.0.0-6.2.99',
 		),
 		'conflicts' => 
 		array (

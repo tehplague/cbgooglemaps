@@ -10,13 +10,13 @@
 					<sheetTitle>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xml:label.sheetLocation</sheetTitle>
 				</TCEforms>
 				<type>array</type>
-				<el>					
+				<el>		
 					<settings.cbgmIncludeJs>
 						<TCEforms>
 							<label></label>
 							<config>
 								<type>user</type>
-								<userFunc>tx_cbgooglemaps_includeBeJavascript->includeCbGoogleMapsJavascript</userFunc>
+								<userFunc>Cbgooglemaps\Service\IncludeBeJavascript->includeCbGoogleMapsJavascript</userFunc>
 							</config>
 						</TCEforms>
 					</settings.cbgmIncludeJs>	
@@ -69,7 +69,7 @@
 							<label></label>
 							<config>
 								<type>user</type>
-								<userFunc>tx_cbgooglemaps_addFlexformFields->addGeocodingButton</userFunc>
+								<userFunc>Cbgooglemaps\Service\AddFlexformFields->addGeocodingButton</userFunc>
 							</config>
 						</TCEforms>
 					</cbgmButtonGeocoding>					
@@ -188,7 +188,7 @@
 								<max>3</max>
 							</config>
 						</TCEforms>
-					</settings.cbgmScaleLevel>					
+					</settings.cbgmScaleLevel>										
 					<settings.cbgmNavigationControl>
 						<TCEforms>
 							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xml:label.navigationControl</label>
@@ -225,7 +225,7 @@
 							<label></label>
 							<config>
 								<type>user</type>
-								<userFunc>tx_cbgooglemaps_addFlexformFields->addPreviewButton</userFunc>
+								<userFunc>Cbgooglemaps\Service\AddFlexformFields->addPreviewButton</userFunc>
 							</config>
 						</TCEforms>
 					</cbgmButtonGeocoding>				

@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 
-Tx_Extbase_Utility_Extension::configurePlugin(
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	$_EXTKEY,
 	'quickgooglemap',
 	array(

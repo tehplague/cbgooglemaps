@@ -11,8 +11,30 @@ plugin.tx_cbgooglemaps {
 			navigationControl = {$plugin.tx_cbgooglemaps.display.mapControl}
 		}
 		valid{
-			mapTypes = HYBRID,ROADMAP,SATELLITE,TERRAIN 
+			mapTypes = HYBRID,ROADMAP,SATELLITE,TERRAIN
 			navigationControl = SMALL,DEFAULT,ANDROID,ZOOM_PAN
 		}
+		additionalPoints =
 	}
 }
+
+################################################
+### example, how to add additional points on map
+################################################
+/*
+plugin.tx_cbgooglemaps.settings.additionalPoints {
+    1{
+	lat = 61.630383
+	lng = 15.291742
+	info = Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	# used for onclick action, it will be zoomed to current value
+	zoom = 12
+    }
+    2{
+	lat = 59.8937803
+	lng = 10.6446927
+	info = test Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	zoom = 2
+    }
+}
+*/

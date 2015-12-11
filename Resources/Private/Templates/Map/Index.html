@@ -6,50 +6,92 @@
 
 
 <script type="text/javascript" charset=utf-8>
+
+
 	var infoText_{contentId} = "{infoText}";
 	    infoText_{contentId} = decodeURIComponent(infoText_{contentId});
 	    infoText_{contentId} = infoText_{contentId}.replace(/\+/g, ' ');
-	
+
 	// split infoText into rows
 	var rowsInfoText_{contentId} = infoText_{contentId}.split("<br>");
 
     var latlng_{contentId} = new google.maps.LatLng(
     		<f:format.number decimals="10" decimalSeparator=".">{latitude}</f:format.number>,
     		<f:format.number decimals="10" decimalSeparator=".">{longitude}</f:format.number>);
-    
+
     var mapOptions_{contentId} = new Object();
         mapOptions_{contentId}.center = latlng_{contentId};
 	    mapOptions_{contentId}.zoom = {mapZoom};
         mapOptions_{contentId}.mapTypeId = google.maps.MapTypeId.{mapType};
         mapOptions_{contentId}.navigationControlOptions = new Object();
         mapOptions_{contentId}.navigationControlOptions.style = google.maps.NavigationControlStyle.{mapControl};
-	   
+
         //myOptions.navigationControlOptions = {style: google.maps.NavigationControlStyle.SMALL};
-        
+
 	var mapCenter_{contentId} = new Object();
 	    mapCenter_{contentId}.position = latlng_{contentId};
 	    mapCenter_{contentId}.title = rowsInfoText_{contentId}[0];
-    
+
     var map_{contentId} = new google.maps.Map(document.getElementById("cbsgm_{contentId}"), mapOptions_{contentId});
     var marker_{contentId} = new google.maps.Marker(mapCenter_{contentId});
-    
+
  	// set info window
     if ('' != infoText_{contentId}){braceStart}
     	infoText_{contentId} = infoText_{contentId}.replace(/\n/g, "<br>");
     	var infoBox_{contentId} = new Object();
     	    infoBox_{contentId}.content = infoText_{contentId};
-    	
+
     	var infowindow_{contentId} = new google.maps.InfoWindow(infoBox_{contentId});
     	// add listener
     	google.maps.event.addListener(marker_{contentId}, 'click', function(){openInfoWindow_{contentId}();});
-    {braceEnd}	
+    {braceEnd}
 
     if (true == '{openInfoBox}') openInfoWindow_{contentId}();
-    
-    marker_{contentId}.setMap(map_{contentId}); 
- 	    
+
+    marker_{contentId}.setMap(map_{contentId});
+
  	function openInfoWindow_{contentId}(){braceStart}
  		infowindow_{contentId}.open(map_{contentId},marker_{contentId});
  	{braceEnd}
-        
+
+
+	if ( {isAdditionalPoints} == 1 ){braceStart}
+	    <f:for each="{points}" as="point" iteration="index">
+
+		var local_{index.index}_latlng_{contentId} = new google.maps.LatLng(
+		    <f:format.number decimals="10" decimalSeparator=".">{point.lat}</f:format.number>,
+		    <f:format.number decimals="10" decimalSeparator=".">{point.lng}</f:format.number>);
+
+		var local_{index.index}_mapCenter_{contentId} = new Object();
+		    local_{index.index}_mapCenter_{contentId}.position = local_{index.index}_latlng_{contentId};
+
+		<f:if condition="{point.info}">
+		    local_{index.index}_mapCenter_{contentId}.title = '<f:format.crop maxCharacters="50">{point.info}</f:format.crop>';
+		</f:if>
+
+		var local_{index.index}_marker_{contentId} = new google.maps.Marker(local_{index.index}_mapCenter_{contentId});
+		local_{index.index}_marker_{contentId}.setMap(map_{contentId});
+
+		local_{index.index}_marker_{contentId}.addListener('click', function() {braceStart}
+
+		    // set zoom, if it was set
+		    <f:if condition="{point.zoom}">
+			map_{contentId}.setZoom({point.zoom});
+		    </f:if>
+
+		    // add message box for marker
+		    <f:if condition="{point.info}">
+			var local_{index.index}_infoBox_{contentId} = new Object();
+			    local_{index.index}_infoBox_{contentId}.content = '{point.info}';
+
+			var local_{index.index}_infowindow_{contentId} = new google.maps.InfoWindow(local_{index.index}_infoBox_{contentId});
+			    local_{index.index}_infowindow_{contentId}.open(map_{contentId},local_{index.index}_marker_{contentId});
+	            </f:if>
+
+		    // centering the map for current marker
+		    map_{contentId}.setCenter(local_{index.index}_marker_{contentId}.getPosition());
+		{braceEnd});
+	    </f:for>
+	{braceEnd}
+
 </script>

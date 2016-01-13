@@ -3,16 +3,21 @@ plugin.tx_cbgooglemaps {
 		googleapi {
 			uri = {$plugin.tx_cbgooglemaps.googleapi.uri}
 		}
+		options {
+			useScrollwheel = {$plugin.tx_cbgooglemaps.options.useScrollwheel}
+		}
 		display{
 			width = {$plugin.tx_cbgooglemaps.display.width}
 			height = {$plugin.tx_cbgooglemaps.display.height}
 			mapType = {$plugin.tx_cbgooglemaps.display.mapType}
 			zoom = {$plugin.tx_cbgooglemaps.display.zoom}
 			navigationControl = {$plugin.tx_cbgooglemaps.display.mapControl}
-		}
+			icon = {$plugin.tx_cbgooglemaps.display.icon}
+			mapStyling = {$plugin.tx_cbgooglemaps.display.styling}
+		}		
 		valid{
 			mapTypes = HYBRID,ROADMAP,SATELLITE,TERRAIN 
-			navigationControl = SMALL,DEFAULT,ANDROID,ZOOM_PAN
+			navigationControl = SMALL,DEFAULT,ANDROID,ZOOM_PAN			
 		}
 	}
 }

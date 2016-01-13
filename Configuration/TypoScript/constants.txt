@@ -3,17 +3,25 @@ plugin.tx_cbgooglemaps {
 		# cat=plugin.tx_cbgooglemaps//a; type=string; label=uri to google javascript api
 		uri = https://maps.google.com/maps/api/js?sensor=false
 	}
+	options {
+		# cat=plugin.tx_cbgooglemaps//c; type=boolean; label=use scrollwheel for zooming in maps?
+		useScrollwheel = true
+	}
 	display {
-		# cat=plugin.tx_cbgooglemaps//b; type=int+; label=default width of map (in pixel)
-		width = 460
-		# cat=plugin.tx_cbgooglemaps//c; type=int+; label=default height of map (in pixel)
+		# cat=plugin.tx_cbgooglemaps//f; type=int+; label=default width of map (in pixel), if empty 100% width will be used
+		width =
+		# cat=plugin.tx_cbgooglemaps//g; type=int+; label=default height of map (in pixel)
 		height = 250
-		# cat=plugin.tx_cbgooglemaps//d; type=options[HYBRID,ROADMAP,SATELLITE,TERRAIN]; label=default map type
+		# cat=plugin.tx_cbgooglemaps//h; type=options[HYBRID,ROADMAP,SATELLITE,TERRAIN]; label=default map type
 		mapType = HYBRID
-		# cat=plugin.tx_cbgooglemaps//e; type=int+; label=default map zoom level (default = 15)
+		# cat=plugin.tx_cbgooglemaps//i; type=int+; label=default map zoom level (default = 15)
 		zoom = 15
-		# cat=plugin.tx_cbgooglemaps//f; type=options[DEFAULT,SMALL,ZOOM_PAN,ANDROID]; label=default map controls 
-		mapControl = DEFAULT		
+		# cat=plugin.tx_cbgooglemaps//j; type=options[DEFAULT,SMALL,ZOOM_PAN,ANDROID]; label=default map controls 
+		mapControl = DEFAULT	
+		# cat=plugin.tx_cbgooglemaps//k; type=string; label=alternate map icon, path: relative to document root (e.g. "fileadmin/user_upload/googlePin.png"), the targeting point resides to the center bottom of the grafic file. 
+		icon =
+		# cat=plugin.tx_cbgooglemaps//m; type=string; label=alternate map styling, path: relative to document root (e.g. "fileadmin/user_upload/googleStyle.txt").
+		styling =
 	}
 }
   

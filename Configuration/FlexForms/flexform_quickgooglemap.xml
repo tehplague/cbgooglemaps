@@ -144,6 +144,7 @@
 								<size>4</size>
 								<max>5</max>
 								<eval>trim</eval>
+								<default>250</default>
 							</config>
 						</TCEforms>
 					</settings.cbgmMapHeight>		
@@ -153,6 +154,7 @@
 							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xml:label.mapType</label>
 							<config>
 								<type>select</type>
+								<default>ROADMAP</default>
 								<items type="array">
 									<numIndex index="0" type="array">
 										<numIndex index="0"></numIndex>
@@ -186,6 +188,7 @@
 								<size>3</size>
 								<eval>trim</eval>
 								<max>3</max>
+								<default>12</default>
 							</config>
 						</TCEforms>
 					</settings.cbgmScaleLevel>										
@@ -194,6 +197,7 @@
 							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xml:label.navigationControl</label>
 							<config>
 								<type>select</type>
+								<default>DEFAULT</default>
 								<items type="array">
 									<numIndex index="0" type="array">
 										<numIndex index="0"></numIndex>

@@ -1,7 +1,14 @@
 
 
 <div class="cbQuickGoogleMap">
-	<div class="inner_cbQuickGoogleMap" id="cbsgm_{contentId}" style="width:{width}px; height:{height}px;"></div>
+	<f:if condition="{width}">
+		<f:then>
+			<div class="inner_cbQuickGoogleMap" id="cbsgm_{contentId}" style="width:{width}px; height:{height}px;"></div>
+		</f:then>
+		<f:else>
+			<div class="inner_cbQuickGoogleMap" id="cbsgm_{contentId}" style="width:100%; height:{height}px;"></div>
+		</f:else>
+	</f:if>
 </div>
 
 
@@ -23,13 +30,19 @@
         mapOptions_{contentId}.mapTypeId = google.maps.MapTypeId.{mapType};
         mapOptions_{contentId}.navigationControlOptions = new Object();
         mapOptions_{contentId}.navigationControlOptions.style = google.maps.NavigationControlStyle.{mapControl};
-	   
+	    mapOptions_{contentId}.scrollwheel = {useScrollwheel};
+		<f:if condition="{mapStyling}"><f:then>
+			mapOptions_{contentId}.styles = <f:format.raw value="{mapStyling}" />;
+		</f:then></f:if>
         //myOptions.navigationControlOptions = {style: google.maps.NavigationControlStyle.SMALL};
-        
+		
 	var mapCenter_{contentId} = new Object();
 	    mapCenter_{contentId}.position = latlng_{contentId};
 	    mapCenter_{contentId}.title = rowsInfoText_{contentId}[0];
-    
+    <f:if condition="{icon}">
+		mapCenter_{contentId}.icon = '{icon}';
+	</f:if>
+	
     var map_{contentId} = new google.maps.Map(document.getElementById("cbsgm_{contentId}"), mapOptions_{contentId});
     var marker_{contentId} = new google.maps.Marker(mapCenter_{contentId});
     
@@ -43,9 +56,14 @@
     	// add listener
     	google.maps.event.addListener(marker_{contentId}, 'click', function(){openInfoWindow_{contentId}();});
     {braceEnd}	
-
-    if (true == '{openInfoBox}') openInfoWindow_{contentId}();
-    
+	
+	
+    if (true == '{openInfoBox}') {
+	  // show map, open infoBox and center view
+	  google.maps.event.addListener(map_{contentId}, 'tilesloaded', 	  
+		function(){google.maps.event.trigger(marker_{contentId}, 'click');});
+	}
+	
     marker_{contentId}.setMap(map_{contentId}); 
  	    
  	function openInfoWindow_{contentId}(){braceStart}

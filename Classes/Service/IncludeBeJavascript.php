@@ -12,9 +12,11 @@ namespace Cbgooglemaps\Service;
 class IncludeBeJavascript{
 	
 	public function includeCbGoogleMapsJavascript($config){
-				
-		$doc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Backend\Template\StandardDocumentTemplate');
-		$filePath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cbgooglemaps');
+		# deprecated and removed in TYPO3 7.0, use following class: 'TYPO3\CMS\Backend\Template\DocumentTemplate' instead	
+		#$doc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Backend\Template\StandardDocumentTemplate');
+		$doc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Backend\Template\DocumentTemplate');
+		
+        $filePath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cbgooglemaps');
 		
 		$doc->JScode .= '<script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>';  
 		$doc->JScode .= '<script src="'.$filePath.'Resources/Public/JavaScript/class.gmaps.js" type="text/javascript"></script>';  

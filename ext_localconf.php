@@ -3,13 +3,14 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	$_EXTKEY,
-	'quickgooglemap',
+	'Brinkert.' . $_EXTKEY,
+	'Quickgooglemap',
+
 	array(
-		'Map' => 'index',		
+		'Map' => 'index',
 	),
+
 	// non-cacheable actions
 	array()
 );

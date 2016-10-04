@@ -34,7 +34,6 @@
 		<f:if condition="{mapStyling}"><f:then>
 			mapOptions_{contentId}.styles = <f:format.raw value="{mapStyling}" />;
 		</f:then></f:if>
-        //myOptions.navigationControlOptions = {style: google.maps.NavigationControlStyle.SMALL};
 		
 	var mapCenter_{contentId} = new Object();
 	    mapCenter_{contentId}.position = latlng_{contentId};
@@ -63,7 +62,18 @@
 	  google.maps.event.addListener(map_{contentId}, 'tilesloaded', 	  
 		function(){google.maps.event.trigger(marker_{contentId}, 'click');});
 	}
-	
+
+
+	// calculate current center position, to reinitialize after resizing
+	var center_{contentId};
+	function calculateCenter() { center_{contentId} = map_{contentId}.getCenter(); }
+	google.maps.event.addDomListener(map_{contentId}, 'idle', function() { calculateCenter(); });
+	// add trigger to reset center of map after window resizing
+	google.maps.event.addDomListener(window, 'resize', function() {
+		map_{contentId}.setCenter(center_{contentId});
+	});
+
+
     marker_{contentId}.setMap(map_{contentId}); 
  	    
  	function openInfoWindow_{contentId}(){braceStart}

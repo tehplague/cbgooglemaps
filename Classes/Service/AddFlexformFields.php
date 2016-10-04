@@ -1,13 +1,15 @@
-<?php 
+<?php
+
+namespace Brinkert\Cbgooglemaps\Service;
+
 /**
  * Class with methods to extend flexforms with user fields 
- * @package				tx_cbgooglemaps_addFlexformFields
- * @path 				tx_cbgooglemaps_addFlexformFields.php
- * @version				3.0: tx_cbgooglemaps_addFlexformFields.php,  17.04.2014
- * @copyright 			(c)2011-2014 Christian Brinert
+ * @package				addFlexformFields
+ * @path 				addFlexformFields.php
+ * @version				3.0: addFlexformFields.php,  17.04.2014
+ * @copyright 			(c)2011-2014 Christian Brinkert
  * @author 				Christian Brinkert <christian.brinkert@googlemail.com>
  */
-namespace Cbgooglemaps\Service;
 
 class AddFlexformFields
 {	

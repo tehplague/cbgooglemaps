@@ -6,8 +6,8 @@ if (!defined('TYPO3_MODE')) {
 
 // register plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	$_EXTKEY,
-	'quickgooglemap',
+	'Brinkert.' . $_EXTKEY,
+	'Quickgooglemap',
 	'Quick Google Map'
 );
 
@@ -19,6 +19,7 @@ if (!defined('TYPO3_MODE')) {
 // add static template configuration
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
 		$_EXTKEY, 'Configuration/TypoScript', 'Quick Google Maps');
+
 
 // set plugin signature
 $pluginSignature = str_replace('_','',$_EXTKEY) . '_quickgooglemap';

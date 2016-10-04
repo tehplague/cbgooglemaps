@@ -1,7 +1,9 @@
 plugin.tx_cbgooglemaps {
 	googleapi {
 		# cat=plugin.tx_cbgooglemaps//a; type=string; label=uri to google javascript api
-		uri = https://maps.google.com/maps/api/js?sensor=false
+		uri = https://maps.googleapis.com/maps/api/js
+		# cat=plugin.tx_cbgooglemaps//b; type=string; label=google api key: see https://developers.google.com/maps/documentation/javascript/ for closer information
+		key =
 	}
 	options {
 		# cat=plugin.tx_cbgooglemaps//c; type=boolean; label=use scrollwheel for zooming in maps?
@@ -23,5 +25,13 @@ plugin.tx_cbgooglemaps {
 		# cat=plugin.tx_cbgooglemaps//m; type=string; label=alternate map styling, path: relative to document root (e.g. "fileadmin/user_upload/googleStyle.txt").
 		styling =
 	}
+	# cat=plugin.tx_cbgooglemaps//o; type=string; label=latitude as float value, if you would like to set some default coordinates
+	latitude =
+	# cat=plugin.tx_cbgooglemaps//p; type=string; label=longitude as float value, if you would like to set some default coordinates
+	longitude =
+	# cat=plugin.tx_cbgooglemaps//q; type=string; label=info text to be shown in the text box to the pin
+	infoText =
+	# cat=plugin.tx_cbgooglemaps//r; type=boolean; label=decide if the info text box should be opened at start
+	infoTextOpen = false
 }
   

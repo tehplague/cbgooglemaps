@@ -2,6 +2,7 @@ plugin.tx_cbgooglemaps {
 	settings{
 		googleapi {
 			uri = {$plugin.tx_cbgooglemaps.googleapi.uri}
+			key = {$plugin.tx_cbgooglemaps.googleapi.key}
 		}
 		options {
 			useScrollwheel = {$plugin.tx_cbgooglemaps.options.useScrollwheel}
@@ -19,5 +20,11 @@ plugin.tx_cbgooglemaps {
 			mapTypes = HYBRID,ROADMAP,SATELLITE,TERRAIN 
 			navigationControl = SMALL,DEFAULT,ANDROID,ZOOM_PAN			
 		}
+
+		latitude = {$plugin.tx_cbgooglemaps.latitude}
+		longitude = {$plugin.tx_cbgooglemaps.longitude}
+
+		infoText = {$plugin.tx_cbgooglemaps.infoText}
+		infoTextOpen = {$plugin.tx_cbgooglemaps.infoTextOpen}
 	}
 }

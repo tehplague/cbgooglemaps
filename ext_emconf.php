@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = array (
   'title' => 'Quick Google Maps',
   'description' => 'Include google maps to the frontend, in a quick and easy way - as content element, by typoscript or even with fluid cObject. (based on google maps api 3)',
   'category' => 'plugin',
-  'version' => '3.2.7',
+  'version' => '3.3.0',
   'state' => 'stable',
   'uploadfolder' => false,
   'createDirs' => '',
@@ -26,7 +26,7 @@ $EM_CONF[$_EXTKEY] = array (
   array (
     'depends' => 
     array (
-      'typo3' => '6.2.0-7.99.99',
+      'typo3' => '6.2.0-8.99.99',
     ),
     'conflicts' => 
     array (

@@ -53,31 +53,23 @@
     	
     	var infowindow_{contentId} = new google.maps.InfoWindow(infoBox_{contentId});
     	// add listener
-    	google.maps.event.addListener(marker_{contentId}, 'click', function(){openInfoWindow_{contentId}();});
-    {braceEnd}	
-	
-	
+    	google.maps.event.addListener(marker_{contentId}, 'click',
+			function(){
+				infowindow_{contentId}.open(map_{contentId},marker_{contentId});
+    	});
+    {braceEnd}
+
+
     if (true == '{openInfoBox}') {
-	  // show map, open infoBox and center view
-	  google.maps.event.addListener(map_{contentId}, 'tilesloaded', 	  
-		function(){google.maps.event.trigger(marker_{contentId}, 'click');});
+	  // show map, open infoBox and center view to marker and infowindow
+	  google.maps.event.addListener(map_{contentId}, 'tilesloaded',
+		function(){
+			google.maps.event.trigger(marker_{contentId}, 'click');
+			google.maps.event.clearListeners(map_{contentId}, 'tilesloaded');
+	  });
 	}
 
+	// assign marker to the map
+    marker_{contentId}.setMap(map_{contentId});
 
-	// calculate current center position, to reinitialize after resizing
-	var center_{contentId};
-	function calculateCenter() { center_{contentId} = map_{contentId}.getCenter(); }
-	google.maps.event.addDomListener(map_{contentId}, 'idle', function() { calculateCenter(); });
-	// add trigger to reset center of map after window resizing
-	google.maps.event.addDomListener(window, 'resize', function() {
-		map_{contentId}.setCenter(center_{contentId});
-	});
-
-
-    marker_{contentId}.setMap(map_{contentId}); 
- 	    
- 	function openInfoWindow_{contentId}(){braceStart}
- 		infowindow_{contentId}.open(map_{contentId},marker_{contentId});
- 	{braceEnd}
-        
 </script>

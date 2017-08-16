@@ -19,29 +19,22 @@ class IncludeBeJavascript{
 
 	public function includeCbGoogleMapsJavascript($config){
 
-        // get objectManager
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-            'TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-        // get configuration manager
-        $this->configurationManager = $objectManager->get(
-            'TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManager');
-
-		// get typoscript configuration
-		$this->settings = $this->configurationManager->getConfiguration(
-			\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT,
-			'Cbgooglemaps',
-			'Quickgooglemap'
-		);
-
-		# deprecated and removed in TYPO3 7.0, use following class: 'TYPO3\CMS\Backend\Template\DocumentTemplate' instead	
-		$doc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Backend\Template\DocumentTemplate');
-
-		$filePath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cbgooglemaps');
+        // fetch current extension typoscript configuration
+        $sysPageObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\Page\\PageRepository');
+        $TSObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\TypoScript\\TemplateService');
+        $TSObj->tt_track = 0;
+        $TSObj->init();
+        $TSObj->runThroughTemplates($sysPageObj->getRootLine($config['row']['pid']));
+        $TSObj->generateConfig();
+        $this->settings = $TSObj->setup['plugin.']['tx_cbgooglemaps.'];
 
 		// build googlemaps library url with optional api key - if given
-		$googleMapsUri = $this->settings['plugin.']['tx_cbgooglemaps.']['settings.']['googleapi.']['uri'];
-		if ($this->settings['plugin.']['tx_cbgooglemaps.']['settings.']['googleapi.']['key'])
-			$googleMapsUri .= '?key='. $this->settings['plugin.']['tx_cbgooglemaps.']['settings.']['googleapi.']['key'];
+		$googleMapsUri = $this->settings['settings.']['googleapi.']['uri'];
+		if ($this->settings['settings.']['googleapi.']['key'])
+			$googleMapsUri .= '?key='. $this->settings['settings.']['googleapi.']['key'];
+
+        $doc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Backend\Template\DocumentTemplate');
+        $filePath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('cbgooglemaps');
 
 		// add javascripts
 		$doc->JScode .= '<script src="'. $googleMapsUri .'" type="text/javascript"></script>';
